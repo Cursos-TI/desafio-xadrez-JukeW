@@ -1,32 +1,38 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+int main(){
+    // Quantidade de Direção de cada peça
+    int i, MOV_BISPO = 5, MOV_TORRE = 5, MOV_RAINHA = 8;
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    // Movimentação do BISPO com While
+    printf("=== MOVIMENTAÇÃO DO BISPO ===\n");
+    i = 0;
+    while(i < MOV_BISPO){ //Execute até o BISPO se mover 5 vezes
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+        printf("Cima direita\n");
+        MOV_BISPO--;
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    }
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // Movimentação da TORRE com Do-While
+    printf("\n=== MOVIMENTAÇÃO DA TORRE ===\n");
+    i = 0;
+    do {
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+        printf("Direita\n");
+        MOV_TORRE--;
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    } while (i < MOV_TORRE); // Execute até a TORRE se mover 5 vezes
 
+    
+    // Movimentação da RAINHA com For
+    printf("\n=== MOVIMENTAÇÃO DA RAINHA ===\n");
+    for (i = 0; i < MOV_RAINHA; i++){ // Execute até a RAINHA se mover 5 vezes
+
+        printf("Esquerda\n");
+
+    }
+    
     return 0;
 }
