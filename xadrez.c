@@ -2,7 +2,7 @@
 
 int main(){
     // Quantidade de Direção de cada peça
-    int i, MOV_BISPO = 5, MOV_TORRE = 5, MOV_RAINHA = 8;
+    int i, MOV_BISPO = 5, MOV_TORRE = 5, MOV_RAINHA = 8, MOV_CAVALO = 1;
 
     // Movimentação do BISPO com While
     printf("=== MOVIMENTAÇÃO DO BISPO ===\n");
@@ -32,6 +32,15 @@ int main(){
 
         printf("Esquerda\n");
 
+    }
+
+    // Movimentação do CAVALO com Loops Aninhados
+    printf("\n=== MOVIMENTAÇÃO DO CAVALO ===\n");
+    while (MOV_CAVALO--){
+        for (int i = 1; i <= 2; i++){ // Imrpime a movimentação vertical 2 vezes
+            printf("Baixo\n");
+        }
+        printf("Esquerda"); // Imprime a movimentação horizontal 1 vez
     }
     
     return 0;
