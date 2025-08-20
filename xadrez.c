@@ -1,47 +1,75 @@
 #include <stdio.h>
 
+// A cada chamada, imprime "Direita" e chama novamente até mov chegar a 0
+void moverTorre(int mov){
+    if (mov > 0){
+        printf("Direita\n");
+        moverTorre(mov - 1);
+    }
+}
+
+void moverBispo(int mov){
+    if (mov > 0){
+        // Loops aninhados: vertical (externo) e horizontal (interno)
+        for (int v = 0; v < 1; v++) {         // Move 1 vez na vertical
+            for (int h = 0; h < 1; h++) {     // Move 1 vez na horizontal
+                printf("Cima - Direita\n");
+            }
+        }
+
+        // Chama recursivamente para continuar o movimento
+        moverBispo(mov - 1);
+    }
+}
+
+// A cada chamada, imprime "Esquerda" e chama novamente até mov chegar a 0
+void moverRainha(int mov){
+    if (mov > 0){
+        printf("Esquerda\n");
+        moverRainha(mov - 1);
+    }
+}
+
+void moverCavalo(int mov){
+    for (int passo = 0; passo < mov; passo++){  // Cada movimento do cavalo
+
+        // Movimento vertical (2 casas para cima)
+        for (int v = 1; v <= 2; v++){
+            if (v == 0) continue; // Exemplo de uso de continue
+            printf("Cima\n");
+
+            if (v > 2) break; // (nunca vai acontecer, mas mostra o uso de break)
+        }
+
+        // Movimento horizontal (1 casa para direita)
+        for (int h = 0; h < 2; h++){
+            if (h == 0) continue; // Pula a primeira iteração
+            printf("Direita\n");
+        }
+    }
+}
+
+
 int main(){
     // Quantidade de Direção de cada peça
     int i, MOV_BISPO = 5, MOV_TORRE = 5, MOV_RAINHA = 8, MOV_CAVALO = 1;
 
-    // Movimentação do BISPO com While
-    printf("=== MOVIMENTAÇÃO DO BISPO ===\n");
-    i = 0;
-    while(i < MOV_BISPO){ //Execute até o BISPO se mover 5 vezes
+    // Movimentação do BISPO com Recursividade
+    printf("\n=== MOVIMENTAÇÃO DA BISPO ===\n");
+    moverBispo(MOV_BISPO);
 
-        printf("Cima direita\n");
-        MOV_BISPO--;
-
-    }
-
-
-    // Movimentação da TORRE com Do-While
-    printf("\n=== MOVIMENTAÇÃO DA TORRE ===\n");
-    i = 0;
-    do {
-
-        printf("Direita\n");
-        MOV_TORRE--;
-
-    } while (i < MOV_TORRE); // Execute até a TORRE se mover 5 vezes
-
+    // Movimentação da TORRE com Recursividade
+    printf("\n=== MOVIMENTAÇÃO DA TORRE ===\n");    
+    moverTorre(MOV_TORRE);
     
-    // Movimentação da RAINHA com For
+    // Movimentação da RAINHA com Recursividade
     printf("\n=== MOVIMENTAÇÃO DA RAINHA ===\n");
-    for (i = 0; i < MOV_RAINHA; i++){ // Execute até a RAINHA se mover 5 vezes
+    moverRainha(MOV_RAINHA);
 
-        printf("Esquerda\n");
-
-    }
-
-    // Movimentação do CAVALO com Loops Aninhados
+    // Movimentação do CAVALO com Recursividade
     printf("\n=== MOVIMENTAÇÃO DO CAVALO ===\n");
-    while (MOV_CAVALO--){
-        for (int i = 1; i <= 2; i++){ // Imrpime a movimentação vertical 2 vezes
-            printf("Baixo\n");
-        }
-        printf("Esquerda"); // Imprime a movimentação horizontal 1 vez
-    }
+    moverCavalo(MOV_CAVALO);   
+
     
     return 0;
 }
